@@ -1,5 +1,4 @@
-
-Integration of linshare to ftp-client
+Integration of linshare to ftp-client and dbscript details.
 
 1. File Uploading
 	package org.linagora.linshare.core.business.service.impl.DocumentEntryBusinessServiceImpl
@@ -8,3 +7,25 @@ Integration of linshare to ftp-client
 2. File downloading
 	package org.linagora.linshare.core.dao.impl.DataKindBalancerFileDataStoreImpl
 		FtpClient.init(fileName, 9);
+		
+
+3. Dbscript of Linshare to Waarp file transmission details, need to run with linshare database name.(ie linshare)
+	
+	CREATE TABLE linshare.sftplinsharewaarp (
+	  id int(11) NOT NULL AUTO_INCREMENT,
+	  filename varchar(500) NOT NULL,
+	  uuid varchar(500) NOT NULL,
+	  processedOn datetime DEFAULT CURRENT_TIMESTAMP,
+	  PRIMARY KEY (id)
+	);
+
+4. Dbscript of Waarp to S3bucket file transmission details, need to run with waarp database name.(ie waarp)
+
+	CREATE TABLE sftpstoragebucketmapping (
+	  id int(11) NOT NULL AUTO_INCREMENT,
+	  filename varchar(450) NOT NULL,
+	  specialKey varchar(450) NOT NULL,
+	  s3fileurl varchar(450) NOT NULL,
+	  processedOn datetime DEFAULT CURRENT_TIMESTAMP,
+	  PRIMARY KEY (id)
+	);
