@@ -1,0 +1,10 @@
+
+Integration of linshare to ftp-client
+
+1. File Uploading
+	package org.linagora.linshare.core.business.service.impl.DocumentEntryBusinessServiceImpl
+		addWaarpInfo(OrgFile11, myFile.getPath(), metadata.getUuid());
+		
+2. File downloading
+	package org.linagora.linshare.core.dao.impl.DataKindBalancerFileDataStoreImpl
+		FtpClient.init(fileName, 9);
